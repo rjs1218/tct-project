@@ -1,0 +1,87 @@
+.home_title {
+    font-size: 6vw;
+    margin: 8.5vw 0px 2vw 0px;
+    box-shadow:  0px -1px 10px rgb(205, 205, 205);
+    background-color: white;
+    border: none;
+    padding: 10px 50px;
+}
+
+h2 {
+    font-size: 3vw;
+    margin: 0%;
+}
+
+h2 span {
+    font-size: 2.5vw;
+    font-weight: normal;
+}
+
+.home_start_p {
+    margin: 0.5% 0% 7.5vw;
+    font-size: 1.04vw;
+}
+
+.home_start {
+    background-color: white;
+    font-size: 2vw;
+    margin: 0% 0% 10vw;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home_start:hover{
+    background-color: rgb(215, 215, 215);
+}
+
+.home_project_information {
+    background-color: rgb(239, 239, 239);
+    margin: 0% 35% 10%;
+    padding: 0.5% 2% 2%;
+    text-align: left;
+}
+
+h3 {
+    font-size: 2vw;
+    margin: 5vw 0% 1vw;
+}
+
+h4 {
+    font-size: 1.6vw;
+    margin: 1% 0% 0%;
+}
+
+.home_image_project {
+    display: inline-block;
+    background-color: gainsboro;
+    white-space: pre-wrap;
+    padding: 10% 15%;
+    margin: 0% 5% 0%;
+}
+
+.home_team_information {
+    background-color: rgb(239, 239, 239);
+    margin: 0% 35% 0%;
+    padding: 0.5% 2% 1.5%;
+    text-align: left;
+}
+
+.home_text{
+    font-size: 1vw;
+}
+
+.home_text_left {
+    text-align: left;
+}
+
+.home_image_team {
+    background-color: rgb(101, 101, 101);
+    padding: 10%;
+    margin: 5%;
+    float: right;
+}
+
+h5 {
+    font-size: 1.2vw;
+}

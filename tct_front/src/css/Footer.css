@@ -1,0 +1,28 @@
+.footer {
+    display: flex;
+    bottom : 0;
+}
+
+.footer_text {
+    font-size: 1vw;
+}
+
+.footer_button{
+    background-color: gainsboro;
+    color: gray;
+    border-radius: 5vw;
+    border-color: rgb(185, 185, 185, 0);
+    font-size: 1.1vw;
+    padding: 0.5vw 1vw 0.5vw;
+}
+
+/* .movetop {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 4rem;
+    height: 4rem;
+    font-size: 300%;
+    background-color: white;
+    color: rgb(185, 185, 185);
+} */

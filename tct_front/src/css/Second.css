@@ -1,0 +1,75 @@
+.second {
+    display: flex;
+    text-align: left;
+    font-size: 1vw;
+    flex-wrap: wrap;
+}
+
+.second-left {
+    flex-basis: 25vw;
+    height: 35vw;
+    flex-grow: 1;
+}
+
+.second-left div {
+    margin: 5em 0em 0em 20em;
+}
+
+.second-left div p {
+    margin: 0em 0em 3em 2em;
+    height: 3rem;
+    width: 15rem;
+}
+
+/* ................ */
+
+.second-right {
+    /* margin-bottom: 0%; */
+    flex-basis: 20vw;
+    height: 35vw;
+    flex-grow: 1;
+}
+
+.second-right div {
+    margin: 5em 0em 0em 18%;
+}
+
+.second-right .t  {
+    margin-top: -5%;
+    margin-left: 16%;
+    margin-bottom: 5%;
+    width: 25em;
+}
+
+.second-right div label {
+    display: inline-block;
+    border-radius: 2vw;
+    color: #fff;
+    background-color: #999999;
+    padding: 10% 10%;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 0% 0% 0% 5%;
+}
+
+.second-right div input[type="file"] {
+    display: none;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.labelbutton {
+    display: inline-block;
+    border-radius: 2vw;
+    border-color: rgb(255, 255, 255, 0);
+    color: #fff;
+    background-color: #999999;
+    padding: 10% 10%;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 0% 0% 0% 5%;
+    font-size: 1vw;
+}
