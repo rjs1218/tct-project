@@ -7,7 +7,7 @@ function Footer3() {
     return (
         <div className="footer">
             <div className='left'>
-                <Link to="/CategoryPage"><button className="footer_button">PREV</button></Link>
+                <Link to="/Output"><button className="footer_button">PREV</button></Link>
             </div>
             <div className='center'></div>
             <div className='right'>

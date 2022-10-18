@@ -8,7 +8,7 @@ function Input_File() {
 
     const onFileChange = async (e) => {
         const file = e.target.files
-        console.log(file)
+        console.log('file', file)
 
         // 파일 상태 setFiles에 저장
         setFiles(file)
@@ -43,7 +43,7 @@ function Input_File() {
         <div>
             <p className='t'>▼</p>
             <label for="input-file" >{label}</label>
-            <input type="file" id="input-file" accept='.txt' onClick={onFileChange} data-target={files} />
+            <input type="file" id="input-file" accept='.txt' onChange={onFileChange} data-target={files} />
         </div>
     );
 }

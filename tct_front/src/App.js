@@ -5,6 +5,7 @@ import Home from './component/Home/Home';
 import FileInputPage from './component/Input/FileInputPage';
 import CategoryPage from './component/Input/CategoryPage';
 import Output from './component/Output/OutputPage';
+import Output2 from './component/Output/OutputPage2';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/FileInputPage' element={<FileInputPage />} />
         <Route path='/CategoryPage' element={<CategoryPage />} />
         <Route path='/Output' element={<Output />} />
+        <Route path='/Output2' element={<Output2 />} />
       </Routes>
     </div>
   );
