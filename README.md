@@ -15,7 +15,7 @@
 
 - Input 폴더, 사용자 입력: 
 
-    1. FileInpuPage.js 가 내용입력에 해당       
+    1. FileInputPage.js 가 내용입력에 해당       
        ``` Input_File.js (post): 파일을 넣는 곳```
 
 
