@@ -1,13 +1,9 @@
 import React from 'react';
-import '../../css/Second.css';
-import Header from '../Home/Header';
-import Footer from './Footer2';
 import File from './Input_Cate';
 
 function Category() {
     return (
         <div>
-            <Header />
             <div className='second'>
                 <div className='second-left'>
                     <div>
@@ -24,8 +20,6 @@ function Category() {
                     </div>
                 </div>
             </div>
-            
-            <Footer />
         </div>
     );
 }

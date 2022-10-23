@@ -1,14 +1,9 @@
 import React from 'react';
-import '../../css/Second.css';
-import Header from '../Home/Header';
-import Footer from './Footer';
 import File from './Input_File';
 
 function FileInputPage() {
-
     return (
         <div>
-            <Header />
             <div className='second'>
                 <div className='second-left'>
                     <div>
@@ -25,8 +20,6 @@ function FileInputPage() {
                     </div>
                 </div>
             </div>
-            
-            <Footer />
         </div>
     );
 }

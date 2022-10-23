@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import '../../css/Second.css';
-import Header from '../Home/Header';
-import Footer from './Footer4';
 import axios from 'axios';
 
 function OutputPage() {
@@ -19,7 +16,6 @@ function OutputPage() {
 
     return (
         <div>
-            <Header />
             <div className='second'>
                 <div className='second-left'>
                     <div>
@@ -42,7 +38,6 @@ function OutputPage() {
                     ))}
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }

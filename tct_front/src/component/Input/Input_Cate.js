@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../../css/Second.css';
 import axios from 'axios';
 
 function Input_Cate() {
