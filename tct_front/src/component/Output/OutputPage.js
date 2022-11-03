@@ -20,7 +20,7 @@ function OutputPage() {
                 <div className='second-left'>
                     <div>
                         <h1>3. 의도한대로 쓰여졌나요?</h1>
-                        <p>앞서 입력한 글의 내용과 주제의 유사도는 다음과 같아요.</p>
+                        <p>앞서 입력한 글의 내용과 주제의<br/>유사도는 다음과 같아요.</p>
                     </div>
                 </div>
                 <div className='second-right'>

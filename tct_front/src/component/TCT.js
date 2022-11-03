@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-import '../css/Second.css';
+import '../css/TCTver1.css';
 import '../css/Footer.css';
+
 import Header from './Home/Header';
 import File from './Input/FileInputPage';
 import Cate from './Input/CategoryPage';
 
 import First from './Output/OutputPage';
 import Secon from './Output/OutputPage2';
+import MG from './Output/MagicGridPage';
 
 function TCT() {
     const [count, setCount] = useState(0)
@@ -22,13 +24,20 @@ function TCT() {
     const User = () =>{
         switch (count){
             case 0:
+                console.log(count)
                 return (<File />)
             case 1:
+                console.log(count)
                 return (<Cate />)
             case 2:
+                console.log(count)
                 return (<First />)
             case 3:
+                console.log(count)
                 return (<Secon />)
+            case 4:
+                console.log(count)
+                return (<MG />)
             default:
         }
     }
@@ -53,6 +62,12 @@ function TCT() {
             setLink("/")
         }
         setCount(count - 1)
+
+        if (count === 4){
+            setLink2("")
+            setBText2("NEXT")
+        }
+        
     }
 
     return (
