@@ -25,9 +25,15 @@
 
  - Output 폴더, 모델 산출: 
 
-      3. ```OutputPage.js (get): 결과 나타나는 곳   ```
+      3. ```MagicGridPage.js(get): RGB 값을 나타내는 곳```     
+      
+      4. ```OutputPage.js (get): 키워드, 유사도 같은 결과 나타내는 곳    ```
 
 
 ---
 
 - 모든 css 파일은 css 폴더에 분리       
+
+---
+
+- MGtest.js / TCTver2.css 로 문제 해결 진행 중.
