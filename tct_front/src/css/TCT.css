@@ -9,7 +9,6 @@
     flex-basis: 25vw;
     height: 35vw;
     flex-grow: 1;
-    /* background-color: #999999; */
 }
 
 .second-left div {
@@ -25,11 +24,9 @@
 /* ................ */
 
 .second-right {
-    /* margin-bottom: 0%; */
     flex-basis: 20vw;
     height: 35vw;
     flex-grow: 1;
-    /* background-color: azure; */
 }
 
 .second-right div {
@@ -47,7 +44,7 @@
     display: inline-block;
     border-radius: 2vw;
     color: #fff;
-    /* background-color: #999999; */
+    background-color: #999999;
     padding: 10% 10%;
     vertical-align: middle;
     cursor: pointer;
@@ -75,5 +72,3 @@
     margin: 0% 0% 0% -15%;
     font-size: 1vw;
 }
-
-/*all: unset를 쿼리로? */

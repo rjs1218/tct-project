@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-import '../css/TCTver1.css';
+import "../css/MG.css";
+import '../css/TCT.css';
 import '../css/Footer.css';
 
 import Header from './Home/Header';
@@ -73,7 +74,7 @@ function TCT() {
     return (
         <div>
             <Header />
-            <div className='second'>
+            <div>
                 <User /> 
             </div>
             

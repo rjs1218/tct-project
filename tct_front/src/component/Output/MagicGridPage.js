@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from "react";
 
-import "../../css/MG.css";
-
 import MagicGridEngine from "magic-grid";
 
 function MagicGridPage(props) {
@@ -49,13 +47,13 @@ function MagicGridPage(props) {
       };
 
     return (
-        <div>
-            <div>
+        <div id="container">
+            <div id="container">
                 <MagicGrid static gutter={12}>
-                    <Card name="1" />
-                    <Card name="1" />
-                    <Card name="1" />
-                    <Card name="1" />
+                    <Card name="&nbsp;" />
+                    <Card name="&nbsp;" />
+                    <Card name="&nbsp;" />
+                    <Card name="&nbsp;" />
                 </MagicGrid>
             </div>
         </div>

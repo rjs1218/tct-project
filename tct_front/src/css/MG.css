@@ -1,5 +1,6 @@
 #Card {
   width: 20rem !important;
+  height: 5rem !important;
   background-color:rebeccapurple !important;
   display: flex !important;
   justify-content: center !important; /*주축의 방향*/
@@ -9,7 +10,11 @@
   border-radius: 1rem !important;
 }
 
-.container div {
+#container {
+  margin-bottom: 1em;
+}
+
+/* .container div {
   width: 280px;
   height: 500px;
   background-color: antiquewhite;
@@ -22,4 +27,4 @@
 .container .item1 { height: 200px; }
 .container .item4 { height: 800px; }
 .container .item6 { height: 600px; }
-.container .item11 { height: 400px; }
+.container .item11 { height: 400px; } */
