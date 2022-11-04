@@ -33,7 +33,3 @@
 ---
 
 - 모든 css 파일은 css 폴더에 분리       
-
----
-
-- MGtest.js / TCTver2.css 로 문제 해결 진행 중.
