@@ -29,7 +29,6 @@ function Home() {
             </div>
             
             <div>
-            {/* 레이아웃 조정 필요 */}
             <h3>팀 소개</h3>
 
                 <div className='home_team_information'>

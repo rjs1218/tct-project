@@ -1,30 +1,18 @@
 #Card {
-  width: 20rem !important;
-  height: 5rem !important;
-  background-color:rebeccapurple !important;
-  display: flex !important;
-  justify-content: center !important; /*주축의 방향*/
-  align-items: center !important; /*교차축의 방향*/
+  width: 20%;
+  max-width: 20rem;
+  min-height: 20%;
+  height: 10em;
+  display: flex;
+  /*주축의 방향*/
+  justify-content: center;
+  /*교차축의 방향*/
+  align-items: center;
   /*여러줄인 경우, */
-  /* align-content: flex-start; */
-  border-radius: 1rem !important;
+  align-content: flex-start;
+  border-radius: 1rem;
 }
 
 #container {
   margin-bottom: 1em;
 }
-
-/* .container div {
-  width: 280px;
-  height: 500px;
-  background-color: antiquewhite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-}
-
-.container .item1 { height: 200px; }
-.container .item4 { height: 800px; }
-.container .item6 { height: 600px; }
-.container .item11 { height: 400px; } */

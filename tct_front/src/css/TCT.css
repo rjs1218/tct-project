@@ -72,3 +72,20 @@
     margin: 0% 0% 0% -15%;
     font-size: 1vw;
 }
+
+#cate {
+    display: block;
+    border-radius: unset;
+    background-color: unset;
+    cursor: pointer;
+    padding: 2% 1%;
+    margin: -1% 0% 0% 20%;
+}
+
+#Input-Cate {
+    width: 10rem !important;
+    border-radius: 2vw;
+    background-color: #999999;
+    margin: 0% 0% 0% -15% !important;
+    margin: unset;
+}

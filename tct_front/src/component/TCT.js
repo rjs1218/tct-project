@@ -8,6 +8,7 @@ import '../css/Footer.css';
 import Header from './Home/Header';
 import File from './Input/FileInputPage';
 import Cate from './Input/CategoryPage';
+import {Input_Cate} from './Input/Input_Cate';
 
 import First from './Output/OutputPage';
 import Secon from './Output/OutputPage2';
@@ -29,9 +30,11 @@ function TCT() {
                 return (<File />)
             case 1:
                 console.log(count)
+                Input_Cate()
                 return (<Cate />)
             case 2:
                 console.log(count)
+                
                 return (<First />)
             case 3:
                 console.log(count)
