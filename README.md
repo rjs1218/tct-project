@@ -3,9 +3,6 @@
 ### front file information     
 
 
-> 디렉토리 구조      
-![image](https://user-images.githubusercontent.com/66003423/197368133-a21a3c34-0d2c-4528-b10c-a5c198e6534a.png)     
-
 - app.js 는 Routes, Route 만 작성      
 
 ---

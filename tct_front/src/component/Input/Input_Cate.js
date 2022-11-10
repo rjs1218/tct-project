@@ -1,27 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 export function Input_Cate() {
-    // key :value 이루어진 JSON 파일로 받아온다.
-    // 따라서, value 값만 받아서 리스트로 만들던지, 키 값으로 값을 받아오던지 해야하고
-    // Next 버튼을 누르면, 값이 전달되게 해야한다.
-    const array = ["경제/경영", "인문", "문학", "과학/수학", "정치/사회", "교육", "역사", "예술/문화", "보건", "총류"]
+    const [cates, setCate] = useState(null);
+    
+    let categorys = [
+        { mains: "총류", 
+            subs: ['신문, 잡지', '방송통신', '문헌정보학', '도서관학 및 정보과학', '일반연속간행물', '일반학회, 단체, 협회, 기관', '일반학회, 단체, 연구조사기관', '총류일반', '기타', '통상', '물류등기타']},
 
-    const onChecked = (e) =>{
-        console.log(e.target.value)
+        { mains: "사회과학", 
+            subs: ['사회과학', '통계학', '국가통계', '경제학', '산업금융', '재정·금융', '금융', '공적연금','건강보험',  '산업·중소기업일반', '산업진흥·고도화', '세제', '사회학',  '기초생활보장', '고용노동', '보육·가족및여성',  '노인·청소년', '안전관리', '사회복지일반', '취약계층지원', '보건의료', '식품의약안전', '정치학', '국정운영', '외교', '국정홍보', '무역및투자유치', '기획재정', '행정학', '일반행정', '병무행정', '지방행정·재정지원', '법학', '국민권익·인권', '법제', '공정거래', '법무및검찰', '경찰', '교육학', '유아및초·중등교육', '고등교육', '교육일반', '평생·직업교육', '풍속, 민속학', '풍속,예절,민속학', '보훈', '국방', '통일']}
+    ]
+
+    const Toggle = () => {
+        const result = []
+        
+        for (const main of categorys) {
+            result.push(<details className='toggle'>
+                            <summary>{main.mains}</summary>
+                            {SubList(main)}
+                        </details>);
+        }
+        return result
     }
 
-    const cate = array.map((arrays) => 
-        (<label id="cate">
-            <input type="radio" name="category" value={arrays} onClick={onChecked}/>
-                {arrays}
-            </label>))
+    const SubList = (main) => {
+        const result = []
+
+        for (const sub of main.subs){
+            result.push(<li id='List' value={sub} onClick={onOpenToggle}>{sub}</li>);
+        }
+        return result
+    }
+
+    const onOpenToggle = (e) => {
+        const cate = e.target.innerText
+        setCate(cate)
+        console.log(cate)
+    }
+
+    const uploadMoudule = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        const upload_cate = cates;
+        console.log(upload_cate)
+
+        formData.append("category", upload_cate)
+
+        const URL = "http://127.0.0.1:8000/tct/post/"
+
+        axios({
+            method: "put", // 전송 요청
+            url: URL,
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            data: formData, // 꼭 생성되어있는 formData 객체만 전송가능
+
+        }).then(function (response) {
+            console.log(response) //성공시 출력되는 로그
+        }).catch(function(error) {
+            console.log(error)
+        })
+    }
 
     return(
         <div>
-            <p className='t'>▼</p>
-            <div id="Input-Cate">
-                {cate}
-            </div>
+            <form onSubmit={uploadMoudule}>
+                <p className='t'>▼</p>
+                <div id="Input-Cate">
+                    <Toggle />
+                <input type="submit" value="보내기" />
+                </div>
+            </form>
         </div>
     );
 }

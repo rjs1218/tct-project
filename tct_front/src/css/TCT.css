@@ -60,6 +60,10 @@
     border: 0;
 }
 
+.second-right div label:hover {
+  background-color: rgb(185, 185, 185);
+}
+
 .labelbutton {
     display: inline-block;
     border-radius: 2vw;
@@ -83,9 +87,34 @@
 }
 
 #Input-Cate {
-    width: 10rem !important;
+    width: 20rem !important;
     border-radius: 2vw;
     background-color: #999999;
     margin: 0% 0% 0% -15% !important;
     margin: unset;
+}
+
+.toggle {
+  padding: 7% 20%;
+  margin: unset !important;
+  cursor: pointer;
+}
+
+.toggle li {
+  width: auto;
+  background-color: #FFF;
+  border-radius: 2vw;
+  padding: 0% 20%;
+  margin: 5% 0%;
+  list-style: none;
+}
+
+.toggle li:hover {
+  background-color: rgb(210, 231, 250);
+}
+
+.toggle:hover {
+  background-color: rgba(219, 235, 249, 0.522);
+  border-radius: 2vw;
+  margin: unset;
 }

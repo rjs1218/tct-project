@@ -4,15 +4,20 @@ import MagicGridEngine from "magic-grid";
 
 function MagicGridPage() {
     const MagicGrid = ({ children, ...props }) => {
+      // useRef를 사용하여 children 을 제어 및 생성
+      // 즉, children 에 해당하는 객체를 매직 그리드처럼 제어한다.
         const container = useRef();
         const timeout = useRef();
         const grid = useRef();
       
+        // 초기화 시간 조정
+        // 초기값 200
         // 1000 = 1초
         const onResize = () => {
           if (!timeout.current) timeout.current = setTimeout(handleReposition, 200);
         };
       
+        //재배치 (초기화 선언)
         const handleReposition = () => {
           grid.current && grid.current.positionItems();
           clearTimeout(timeout.current);
@@ -34,6 +39,7 @@ function MagicGridPage() {
           }
           handleReposition();
       
+          // 초기화
           return () => {
             clearTimeout(timeout.current);
             window.removeEventListener("resize", onResize);
@@ -41,11 +47,13 @@ function MagicGridPage() {
           };
         });
         
+        // 객체 생성 및 초기화
         useEffect(() => {
           handleReposition();
         });
 
         //container
+        // 위 선언을 걸쳐서 매직 그리드 엘리먼트 생성
         return <div ref={container}>{children}</div>;
       };
 
@@ -54,6 +62,7 @@ function MagicGridPage() {
       let colors = ["rgb(255,205,0)", "blue", "red", "rgb(255, 255, 0)", "#123456", ran]
 
       //Card
+      // 선언한 card 엘리먼트 전부 태그 값으로 출력하는 곳
       const Card = () => {
         const result = []
         for (const color of colors) {
@@ -68,7 +77,8 @@ function MagicGridPage() {
     return (
         <div id="container">
             <div id="container">
-                <MagicGrid static gutter={12}>
+                <MagicGrid static gutter={12}> {/*엘리먼트 간격*/}
+                    {/*children*/}
                     <Card />
                 </MagicGrid>
             </div>
