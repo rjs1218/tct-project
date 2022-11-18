@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
+
+import Header from '../Home/Header';
 
 function OutputPage() {
     const [end, setEnd] = useState([]);
@@ -16,6 +19,7 @@ function OutputPage() {
 
     return (
         <div>
+            <Header />
             <div className='second'>
                 <div className='second-left'>
                     <div>
@@ -36,6 +40,15 @@ function OutputPage() {
                             <p>위와 같은 키워드와 관련도가 높아요.</p>
                         </div>
                     ))}
+                </div>
+                <div className="footer">
+                    <div className='left'>
+                        <Link to='/First'><button className="footer_button">PREV</button></Link>
+                    </div>
+                    <div className='center'>4/5</div>
+                    <div className='right'>
+                        <Link to='/MG'><button className="footer_button">NEXT</button></Link>
+                    </div>
                 </div>
             </div>
         </div>

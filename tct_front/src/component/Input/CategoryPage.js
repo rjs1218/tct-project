@@ -1,9 +1,12 @@
 import React from 'react';
 import File from './Input_Cate';
 
+import Header from '../Home/Header';
+
 function Category() {
     return (
         <div>
+            <Header />
             <div className='second'>
                 <div className='second-left'>
                     <div>

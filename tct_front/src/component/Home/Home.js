@@ -15,7 +15,7 @@ function Home() {
                 <h2>T<span>opic</span> C<span>olor</span> T<span>heme</span></h2>
                 <p className='home_start_p'>당신의 글은 생각한 대로 작성되고 있나요?</p>
 
-                <Link to="/TCT"><button className='home_start'>START</button></Link>
+                <Link to="/File"><button className='home_start'>START</button></Link>
             </div>
 
             <div>

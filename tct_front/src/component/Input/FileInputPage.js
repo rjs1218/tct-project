@@ -1,9 +1,16 @@
 import React from 'react';
 import File from './Input_File';
 
+import "../../css/MG.css";
+import '../../css/TCT.css';
+import '../../css/Footer.css';
+
+import Header from '../Home/Header';
+
 function FileInputPage() {
     return (
         <div>
+            <Header />
             <div className='second'>
                 <div className='second-left'>
                     <div>

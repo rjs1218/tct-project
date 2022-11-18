@@ -3,6 +3,7 @@
     text-align: left;
     font-size: 1vw;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .second-left {
@@ -77,44 +78,47 @@
     font-size: 1vw;
 }
 
-#cate {
-    display: block;
-    border-radius: unset;
-    background-color: unset;
-    cursor: pointer;
-    padding: 2% 1%;
-    margin: -1% 0% 0% 20%;
-}
-
 #Input-Cate {
-    width: 20rem !important;
+    width: 25rem !important;
     border-radius: 2vw;
     background-color: #999999;
-    margin: 0% 0% 0% -15% !important;
-    margin: unset;
+    margin: 0% 0% 5% -40% !important;
 }
 
 .toggle {
-  padding: 7% 20%;
-  margin: unset !important;
-  cursor: pointer;
+    width: 35% !important;
+    display: inline !important;
+    padding: 2% 5% !important;
+    margin: 0% 0% 0% 2.6% !important;
+    cursor: pointer;
 }
 
 .toggle li {
-  width: auto;
-  background-color: #FFF;
-  border-radius: 2vw;
-  padding: 0% 20%;
-  margin: 5% 0%;
-  list-style: none;
+    width: 100px !important;
+    background-color: #FFF;
+    border-radius: 2vw;
+    padding: 0% 20%;
+    margin: 5% 0%;
+    list-style: none;
 }
 
 .toggle li:hover {
-  background-color: rgb(210, 231, 250);
+    background-color: rgb(210, 231, 250);
 }
 
 .toggle:hover {
-  background-color: rgba(219, 235, 249, 0.522);
-  border-radius: 2vw;
-  margin: unset;
+    background-color: rgba(219, 235, 249, 0.522);
+    border-radius: 2vw;
+    margin: unset;
+}
+
+.back_button{
+    background-color: gainsboro;
+    color: gray;
+    border-radius: 5vw;
+    border-color: rgb(185, 185, 185, 0);
+    font-size: 1.1vw;
+    padding: 0.5vw 1vw 0.5vw;
+    cursor: pointer;
+    margin: 0% 0% 0% 20% !important;
 }

@@ -1,15 +1,33 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 export function Input_Cate() {
     const [cates, setCate] = useState(null);
-    
-    let categorys = [
+
+    const categorys = [
         { mains: "총류", 
-            subs: ['신문, 잡지', '방송통신', '문헌정보학', '도서관학 및 정보과학', '일반연속간행물', '일반학회, 단체, 협회, 기관', '일반학회, 단체, 연구조사기관', '총류일반', '기타', '통상', '물류등기타']},
+            subs: ['신문/언론/저널리즘', '문헌정보학', '일반연속간행물','일반학회/단체/협회/기관']},
+
+        { mains: "철학", 
+            subs: ['철학','형이상학','심리학','윤리학']},
 
         { mains: "사회과학", 
-            subs: ['사회과학', '통계학', '국가통계', '경제학', '산업금융', '재정·금융', '금융', '공적연금','건강보험',  '산업·중소기업일반', '산업진흥·고도화', '세제', '사회학',  '기초생활보장', '고용노동', '보육·가족및여성',  '노인·청소년', '안전관리', '사회복지일반', '취약계층지원', '보건의료', '식품의약안전', '정치학', '국정운영', '외교', '국정홍보', '무역및투자유치', '기획재정', '행정학', '일반행정', '병무행정', '지방행정·재정지원', '법학', '국민권익·인권', '법제', '공정거래', '법무및검찰', '경찰', '교육학', '유아및초·중등교육', '고등교육', '교육일반', '평생·직업교육', '풍속, 민속학', '풍속,예절,민속학', '보훈', '국방', '통일']}
+        subs: ['사회과학','통계학','경제학','사회학/사회문제','정치학','행정학','법학','교육학','풍속/민속학','군방/군사학']},
+
+        { mains: "순수과학", 
+        subs: ['지학','광물학','물리학']},
+
+        { mains: "기술과학", 
+        subs: ['공학/공업일반']},
+
+        { mains: "예술", 
+        subs: ['예술', '문화','건축술','회화/도화','오락/운동','연극','음악']},
+
+        { mains: "문학", 
+        subs: ['문학','한국문학','영미문학']},
+
+        { mains: "역사", 
+        subs: ['역사','아시아']}
     ]
 
     const Toggle = () => {
@@ -28,53 +46,46 @@ export function Input_Cate() {
         const result = []
 
         for (const sub of main.subs){
-            result.push(<li id='List' value={sub} onClick={onOpenToggle}>{sub}</li>);
+            result.push(<li id='List' value={sub} onClick={onChangeCate}>{sub}</li>);
         }
         return result
     }
 
-    const onOpenToggle = (e) => {
-        const cate = e.target.innerText
-        setCate(cate)
-        console.log(cate)
+    const onChangeCate = (e) => {
+        setCate(e.target.innerText)
     }
 
-    const uploadMoudule = async (e) => {
-        e.preventDefault();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-        const formData = new FormData();
+    const files = location.state.file;
+    // console.log(files)
 
-        const upload_cate = cates;
-        console.log(upload_cate)
-
-        formData.append("category", upload_cate)
-
-        const URL = "http://127.0.0.1:8000/tct/post/"
-
-        axios({
-            method: "put", // 전송 요청
-            url: URL,
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-            data: formData, // 꼭 생성되어있는 formData 객체만 전송가능
-
-        }).then(function (response) {
-            console.log(response) //성공시 출력되는 로그
-        }).catch(function(error) {
-            console.log(error)
+    const onPassDate = (e) => {
+        navigate('/Check', {
+            state: {
+                file: files,
+                cates: cates
+            }
         })
     }
 
     return(
         <div>
-            <form onSubmit={uploadMoudule}>
-                <p className='t'>▼</p>
-                <div id="Input-Cate">
-                    <Toggle />
-                <input type="submit" value="보내기" />
+            <p className='t'>▼</p>
+            <div id="Input-Cate">
+                <Toggle />
+            </div>
+
+            <div className="footer">
+                <div className='left'>
+                    <Link to='/File'><button className="footer_button">PREV</button></Link>
                 </div>
-            </form>
+                <div className='center'>2/5</div>
+                <div className='right'>
+                    <button className="footer_button" onClick={onPassDate}>NEXT</button>
+                </div>
+            </div>
         </div>
     );
 }
