@@ -15,4 +15,6 @@
 
 #container {
   margin-bottom: 1em;
+  min-height: 400px;
+  height: 50%;
 }

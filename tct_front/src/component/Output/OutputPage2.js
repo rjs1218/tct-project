@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-
-import Header from '../Home/Header';
 
 function OutputPage() {
     const [end, setEnd] = useState([]);
@@ -17,17 +15,34 @@ function OutputPage() {
         console.log(error)
     })
 
+    const navigate = useNavigate();
+
+    const onPassDate = () => {
+        navigate('/TCT', {
+            state: {
+                c: 5
+            }
+        })
+    }
+
+    const noPassDate = () => {
+        navigate('/TCT', {
+            state: {
+                c: 3
+            }
+        })
+    }
+
     return (
         <div>
-            <Header />
-            <div className='second'>
-                <div className='second-left'>
+            <div className='tct'>
+                <div className='tct-left'>
                     <div>
                         <h1>4. TCT</h1>
                         <p>이런 제목과 색상은 어떠세요?</p>
                     </div> 
                 </div>
-                <div className='second-right'>
+                <div className='tct-right'>
                 {end.map((e) => (
                         <div>
                             <h1>{e.cate}분석한 카테고리</h1>
@@ -40,14 +55,14 @@ function OutputPage() {
                             <p>위와 같은 키워드와 관련도가 높아요.</p>
                         </div>
                     ))}
-                </div>
-                <div className="footer">
-                    <div className='left'>
-                        <Link to='/First'><button className="footer_button">PREV</button></Link>
-                    </div>
-                    <div className='center'>4/5</div>
-                    <div className='right'>
-                        <Link to='/MG'><button className="footer_button">NEXT</button></Link>
+                    <div className="tct-footer">
+                        <div className='left'>
+                            <button className="footer_button" onClick={noPassDate}>PREV</button>
+                        </div>
+                        <div className='center'>4/5</div>
+                        <div className='right'>
+                            <button className="footer_button" onClick={onPassDate}>NEXT</button>
+                        </div>
                     </div>
                 </div>
             </div>

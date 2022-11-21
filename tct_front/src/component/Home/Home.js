@@ -1,11 +1,20 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import '../../css/Home.css';
 import Header from './Header';
 import Footer from './Footer';
 
 function Home() {
+    const navigate = useNavigate();
+
+    const onPassDate = () => {
+        navigate('/TCT', {
+            state: {
+                c: 0
+            }
+        })
+    }
     
     return (
         <div className='home'>
@@ -15,7 +24,7 @@ function Home() {
                 <h2>T<span>opic</span> C<span>olor</span> T<span>heme</span></h2>
                 <p className='home_start_p'>당신의 글은 생각한 대로 작성되고 있나요?</p>
 
-                <Link to="/File"><button className='home_start'>START</button></Link>
+                <button className='home_start' onClick={onPassDate}>START</button>
             </div>
 
             <div>

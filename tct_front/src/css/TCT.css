@@ -1,124 +1,223 @@
-.second {
-    display: flex;
-    text-align: left;
-    font-size: 1vw;
-    flex-wrap: wrap;
-    position: relative;
+/* 모바일 CSS */
+@media all and (min-width: 0px){
+    .tct {
+        min-height: 400px;
+        height: 50%;
+        font-size: 13px;
+    }
+
+    .tct-left {
+        margin: 0 8%;
+    }
+
+    .tct-right {
+        margin: 0 8%;
+    }
+
+    .tct h1 {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    h6 {
+        background-color: rgb(185, 185, 185);
+        border-radius: 2vw;
+        text-align: center;
+        padding: 5%;
+        margin: 10% 10%;
+        width: 70%;
+        font-size: 20px;
+    }
+
+    p {
+        margin: 0 0 0 0;
+    }
+
+    .t {
+        margin: 0 0 10% 0;
+    }
+
+    label {
+        background-color: #999999;
+        cursor: pointer;
+        margin: 0 0 0 0;
+        border-radius: 2vw;
+        color: #fff;
+        padding: 10% 10%;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    
+    label:hover {
+        background-color: rgb(185, 185, 185);
+    }
+    
+    #input-file {
+        display: none;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+    }
+
+    /* toggle */
+
+    #Input-Cate{
+        background-color: #999999;
+        border-radius: 2vw;
+        width: 40%;
+        padding: 5% 10%;
+        margin: -5% 0% 15% 20%;    
+        cursor: pointer;
+        font-size: 15px;
+        list-style: none;
+        text-align: left;
+    }
+
+    .toggle {
+        margin: 0 0 5% 0;
+    }
+
+    li {
+        background-color: #FFF;
+        border-radius: 2vw;
+        padding: 5% 5%;
+        margin: 5% 0%;
+        text-align: center;
+    }
+
+    li:hover {
+        background-color: rgb(210, 231, 250);
+    }
+
+    .tct-footer {
+        position : fixed;
+        width: 100%;
+        display: flex;
+        bottom : 0;
+        text-align: center;
+        margin: 0 0 0 -8%;
+    }
 }
 
-.second-left {
-    flex-basis: 25vw;
-    height: 35vw;
-    flex-grow: 1;
-}
+/* PC&기본 CSS min(960px, 1024px)*/
+/* ( 원하는 픽셀 / 화면 픽셀 ) * 100 = X% */
+/* 위 처럼 계산해서 가로, 세로 값을 정한다*/
+@media all and (min-width: 768px){
+    .tct {
+        display: flex;
+        text-align: left;
+        min-height: 400px;
+        height: 50%;
+    }
+    
+    .tct-left {
+        width: 50%;
+        margin: 0 0 0 20%;
+    }
+    
+    .tct-right {
+        border-radius: 2vw;
+        width: 50%;
+        padding: 0 0 0 1%;
+        margin: 0 20% 0 0;
+    }
 
-.second-left div {
-    margin: 5em 0em 0em 20em;
-}
+    .tct h1 {
+        text-align: left;
+        font-size: 30px;
+    }
 
-.second-left div p {
-    margin: 0em 0em 3em 2em;
-    height: 3rem;
-    width: 16rem;
-}
+    h6 {
+        background-color: rgb(185, 185, 185);
+        border-radius: 2vw;
+        text-align: center;
+        padding: 5%;
+        margin: 10% 0;
+        width: 70%;
+        font-size: 30px;
+    }
+    
+    p {
+        margin: 0 0 0 8%;
+        font-size: 18.4px;
+    }
+    
+    .t {
+        margin: 0 0 10% 37%;
+    }
+    
+    label {
+        background-color: #999999;
+        cursor: pointer;
+        margin: 0 0 0 25.1%;
+        border-radius: 2vw;
+        color: #fff;
+        padding: 10% 10%;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    
+    label:hover {
+        background-color: rgb(185, 185, 185);
+    }
+    
+    #input-file {
+        display: none;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+    }
 
-/* ................ */
+    /* toggle */
 
-.second-right {
-    flex-basis: 20vw;
-    height: 35vw;
-    flex-grow: 1;
-}
+    #Input-Cate{
+        background-color: #999999;
+        border-radius: 2vw;
+        width: 40%;
+        padding: 5% 10%;
+        margin: -5% 15% 15% 15%;
+        cursor: pointer;
+        font-size: 15px;
+        list-style: none;
+    }
 
-.second-right div {
-    margin: 5em 0em 0em 22%;
-}
+    .toggle {
+        margin: 0 0 5% 0;
+    }
 
-.second-right .t  {
-    margin-top: -5%;
-    margin-left: -4%;
-    margin-bottom: 5%;
-    width: 25em;
-}
+    .toggle:hover {
+        background-color: rgba(219, 235, 249, 0.522);
+        border-radius: 1vw;
+        width: 100%;
+        margin: 0% 0%;
+        padding: 5% 5%;
+    }
 
-.second-right div label {
-    display: inline-block;
-    border-radius: 2vw;
-    color: #fff;
-    background-color: #999999;
-    padding: 10% 10%;
-    vertical-align: middle;
-    cursor: pointer;
-    margin: 0% 0% 0% -15%;
-}
+    li {
+        background-color: #FFF;
+        border-radius: 2vw;
+        padding: 5% 5%;
+        margin: 5% 0%;
+        text-align: center;
+    }
 
-.second-right div input[type="file"] {
-    display: none;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-}
-
-.second-right div label:hover {
-  background-color: rgb(185, 185, 185);
-}
-
-.labelbutton {
-    display: inline-block;
-    border-radius: 2vw;
-    border-color: rgb(255, 255, 255, 0);
-    color: #fff;
-    background-color: #999999;
-    padding: 10% 10%;
-    vertical-align: middle;
-    cursor: pointer;
-    margin: 0% 0% 0% -15%;
-    font-size: 1vw;
-}
-
-#Input-Cate {
-    width: 25rem !important;
-    border-radius: 2vw;
-    background-color: #999999;
-    margin: 0% 0% 5% -40% !important;
-}
-
-.toggle {
-    width: 35% !important;
-    display: inline !important;
-    padding: 2% 5% !important;
-    margin: 0% 0% 0% 2.6% !important;
-    cursor: pointer;
-}
-
-.toggle li {
-    width: 100px !important;
-    background-color: #FFF;
-    border-radius: 2vw;
-    padding: 0% 20%;
-    margin: 5% 0%;
-    list-style: none;
-}
-
-.toggle li:hover {
-    background-color: rgb(210, 231, 250);
-}
-
-.toggle:hover {
-    background-color: rgba(219, 235, 249, 0.522);
-    border-radius: 2vw;
-    margin: unset;
-}
-
-.back_button{
-    background-color: gainsboro;
-    color: gray;
-    border-radius: 5vw;
-    border-color: rgb(185, 185, 185, 0);
-    font-size: 1.1vw;
-    padding: 0.5vw 1vw 0.5vw;
-    cursor: pointer;
-    margin: 0% 0% 0% 20% !important;
+    li:hover {
+        background-color: rgb(210, 231, 250);
+    }
+    
+    /* footer */
+    
+    .tct-footer {
+        position : fixed;
+        width: 100%;
+        height: 2.5vw;
+        display: flex;
+        bottom : 0;
+        text-align: center;
+        margin: 0 0 2% -50%;
+    }
 }

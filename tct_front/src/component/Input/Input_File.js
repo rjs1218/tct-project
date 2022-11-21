@@ -10,9 +10,10 @@ export function Input_File() {
 
     // 데이터 넘기기
     const onPassDate = () => {
-        navigate('/Cate', {
+        navigate('/TCT', {
             state: {
-                file: files[0]
+                file: files[0],
+                c: 1
             }
         })
     }
@@ -39,11 +40,11 @@ export function Input_File() {
 
     return (
         <div>
-            <p className='t'>▼</p>
+            <p className='t'>▼</p><br/>
             <label htmlFor="input-file" >{label}</label>
             <input type="file" id="input-file" accept='.txt' onChange={onFileChange} data-target={files} />
 
-            <div className="footer">
+            <div className="tct-footer">
                 <div className='left'>
                     <Link to='/'><button className="footer_button">HOME</button></Link>
                 </div>

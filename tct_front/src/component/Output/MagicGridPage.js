@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-
-import Header from '../Home/Header';
+import { useNavigate } from "react-router-dom";
 
 import MagicGridEngine from "magic-grid";
 
@@ -77,9 +75,26 @@ function MagicGridPage() {
         return result
       };
 
+      const navigate = useNavigate();
+
+      const onPassDate = () => {
+          navigate('/', {
+              state: {
+                  c: 0
+              }
+          })
+      }
+  
+      const noPassDate = () => {
+          navigate('/TCT', {
+              state: {
+                  c: 4
+              }
+          })
+      }
+
     return (
         <div id="container">
-            <Header />
             <div id="container">
                 <MagicGrid static gutter={12}> {/*엘리먼트 간격*/}
                     {/*children*/}
@@ -87,13 +102,13 @@ function MagicGridPage() {
                 </MagicGrid>
             </div>
             <div className="MG-footer">
-            <div className='left'>
-              <Link to='/Secon'><button className="footer_button">PREV</button></Link>
-            </div>
-            <div className='center'>5/5</div>
-            <div className='right'>
-              <Link to='/'><button className="footer_button">HOME</button></Link>
-            </div>
+              <div className='left'>
+                <button className="footer_button" onClick={noPassDate}>PREV</button>
+              </div>
+              <div className='center'>5/5</div>
+              <div className='right'>
+                <button className="footer_button" onClick={onPassDate}>HOME</button>
+              </div>
             </div>
         </div>
     );

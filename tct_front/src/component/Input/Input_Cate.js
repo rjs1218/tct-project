@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export function Input_Cate() {
     const [cates, setCate] = useState(null);
@@ -61,11 +61,22 @@ export function Input_Cate() {
     const files = location.state.file;
     // console.log(files)
 
-    const onPassDate = (e) => {
-        navigate('/Check', {
+    const onPassDate = () => {
+        navigate('/TCT', {
             state: {
                 file: files,
-                cates: cates
+                cates: cates,
+                c: 2
+            }
+        })
+    }
+
+    const noPassDate = () => {
+        navigate('/TCT', {
+            state: {
+                file: files,
+                cates: cates,
+                c: 0
             }
         })
     }
@@ -77,9 +88,9 @@ export function Input_Cate() {
                 <Toggle />
             </div>
 
-            <div className="footer">
+            <div className="tct-footer">
                 <div className='left'>
-                    <Link to='/File'><button className="footer_button">PREV</button></Link>
+                    <button className="footer_button" onClick={noPassDate}>PREV</button>
                 </div>
                 <div className='center'>2/5</div>
                 <div className='right'>

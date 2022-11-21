@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
-
-import Header from '../Home/Header';
 
 function CheckPage() {
     const location = useLocation();
@@ -11,6 +9,8 @@ function CheckPage() {
     const cate = location.state.cates;
     console.log(files)
     console.log(cate)
+
+    const navigate = useNavigate();
 
     const uploadMoudule = async () => {
 
@@ -34,24 +34,45 @@ function CheckPage() {
         }).catch(function(error) {
             console.log(error)
         })
+
+        navigate('/TCT', {
+            state: {
+                c: 3
+            }
+        })
+    }
+
+    const noPassDate = (e) => {
+        navigate('/TCT', {
+            state: {
+                c: 0
+            }
+        })
     }
 
     return (
         <div>
-            <Header />
-            <div className='second'>
-                <div className='second-left'>
+            <div className='tct'>
+                <div className='tct-left'>
                     <div>
                         <h1>혹시 선택한 것들이 맞나요?</h1>
                         <p>아니라면 다시 선택해주세요 :)</p>
-                        <Link to='/File'><button className="footer_button">PREV</button></Link>
                     </div>
                 </div>
-                <div className='second-right'>
+                <div className='tct-right'>
                     <div>
-                        <h1>{files.name}</h1>
-                        <p>{cate}</p>
-                        <Link to='/First'><button className="next_button" onClick={uploadMoudule}>NEXT</button></Link>
+                        <h6>{files.name}</h6>
+                        <h6>{cate}</h6>
+                    </div>
+
+                    <div className="tct-footer">
+                        <div className='left'>
+                            <button className="footer_button" onClick={noPassDate}>PREV</button>
+                        </div>
+                        <div className='center'>   </div>
+                        <div className='right'>
+                            <button className="footer_button" onClick={uploadMoudule}>NEXT</button>
+                        </div>
                     </div>
                 </div>
             </div>
