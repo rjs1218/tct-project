@@ -62,7 +62,7 @@ function OutputPage() {
                             <h5>추천 색상</h5>
                             <div id='block'>
                                 {loading && data.map(user => (
-                                    <span style={{backgroundColor: "rgb"+user}}>&nbsp;</span>
+                                    <span style={{backgroundColor: "rgb"+user.code}}>&nbsp;</span>
                                 ))}
                             </div>
                             {keywords.map(user => (
