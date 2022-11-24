@@ -62,13 +62,15 @@ export function Input_Cate() {
     // console.log(files)
 
     const onPassDate = () => {
-        navigate('/TCT', {
-            state: {
-                file: files,
-                cates: cates,
-                c: 2
-            }
-        })
+        if (cates !== null) {
+            navigate('/TCT', {
+                state: {
+                    file: files,
+                    cates: cates,
+                    c: 2
+                }
+            })
+        }
     }
 
     const noPassDate = () => {
@@ -88,6 +90,7 @@ export function Input_Cate() {
                 <Toggle />
             </div>
 
+            <br/>
             <div className="tct-footer">
                 <div className='left'>
                     <button className="footer_button" onClick={noPassDate}>PREV</button>

@@ -1,0 +1,18 @@
+div {
+    position: absolute !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    background: #ffffffb7 !important;
+    z-index: 999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+p {
+    font: 1rem !important;
+    text-align: center !important;
+}

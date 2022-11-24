@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
+import Lode from '../Loading'
 
 function CheckPage() {
+    const [loading, setLode] = useState(true);
     const location = useLocation();
 
     const files = location.state.file; //e.target[0].files[0];
@@ -13,13 +15,15 @@ function CheckPage() {
     const navigate = useNavigate();
 
     const uploadMoudule = async () => {
+        setLode(true);
 
         const formData = new FormData();
 
         formData.append("content", files)
         formData.append("category", cate)
 
-        const URL = "http://127.0.0.1:8000/tct/post/"
+        // 전송 요청
+        const URL = "http://127.0.0.1:8000/tct/file-upload/"
 
         axios({
             method: "post", // 전송 요청
@@ -29,11 +33,16 @@ function CheckPage() {
             },
             data: formData, // 꼭 생성되어있는 formData 객체만 전송가능
 
-        }).then(function (response) {
+        }).then(async function (response) {
             console.log(response) //성공시 출력되는 로그
+
+            const result = await response.json();
+            setLode(false);
         }).catch(function(error) {
             console.log(error)
         })
+
+
 
         navigate('/TCT', {
             state: {
@@ -41,6 +50,10 @@ function CheckPage() {
             }
         })
     }
+
+    useEffect(() => {
+        uploadMoudule();
+    }, []);
 
     const noPassDate = (e) => {
         navigate('/TCT', {
@@ -52,6 +65,7 @@ function CheckPage() {
 
     return (
         <div>
+            {loading ? <Lode /> : null}
             <div className='tct'>
                 <div className='tct-left'>
                     <div>
