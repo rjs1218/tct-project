@@ -670,7 +670,7 @@ def pre_doc(doc):
 
     m_pre_nouns = " ".join([word for word in m_pre_doc])
 
-    n_gram_range = (2, 3)
+    n_gram_range = (2, 2)
 
     count = CountVectorizer(ngram_range=n_gram_range).fit([m_pre_nouns])
     candidates = count.get_feature_names()
@@ -682,11 +682,6 @@ def pre_doc(doc):
     candidate_embeddings = model.encode(candidates)
 
     output_key = mmr(
-        doc_embedding, candidate_embeddings, candidates, top_n=5, diversity=0.4
+        doc_embedding, candidate_embeddings, candidates, top_n=3, diversity=0.4
     )
     return output_key
-
-
-"""
-media에 저장된 텍스트 파일의 경로를 찾고 싶다면 @@@.파일이름.url
-"""

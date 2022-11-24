@@ -12,7 +12,11 @@ router_file.register("file-upload", views.FileViewSet)
 router_keyword = DefaultRouter()
 router_keyword.register("keyword", views.KeywordViewSet)
 
+router_image = DefaultRouter()
+router_image.register("image", views.ImageViewSet)
+
 urlpatterns = [
     path("", include(router_file.urls)),
     path("", include(router_keyword.urls)),
+    path("", include(router_image.urls)),
 ]
