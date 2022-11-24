@@ -14,7 +14,7 @@ function OutputPage() {
         navigate('/TCT', {
             state: {
                 c: 4,
-                keywords: data2
+                keywords: data
             }
         })
     }
