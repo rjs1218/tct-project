@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
-import Lode from '../Loading'
+import Load from '../Loading'
 
 function CheckPage() {
-    const [loading, setLode] = useState(true);
+    const [loading, setLoad] = useState(null);
+    
     const location = useLocation();
 
     const files = location.state.file; //e.target[0].files[0];
@@ -15,12 +16,13 @@ function CheckPage() {
     const navigate = useNavigate();
 
     const uploadMoudule = async () => {
-        setLode(true);
-
+        // setLoad(true)
+        setLoad(false);
+        
         const formData = new FormData();
 
-        formData.append("content", files)
-        formData.append("category", cate)
+        formData.append("file", files)
+        // formData.append("category", cate)
 
         // 전송 요청
         const URL = "http://127.0.0.1:8000/tct/file-upload/"
@@ -33,39 +35,37 @@ function CheckPage() {
             },
             data: formData, // 꼭 생성되어있는 formData 객체만 전송가능
 
-        }).then(async function (response) {
+        }).then(function (response) {
             console.log(response) //성공시 출력되는 로그
-
-            const result = await response.json();
-            setLode(false);
+            setLoad(false);
+            
         }).catch(function(error) {
             console.log(error)
         })
-
-
-
         navigate('/TCT', {
             state: {
-                c: 3
+                c: 3,
+                cates: cate
             }
         })
+ 
     }
 
     useEffect(() => {
-        uploadMoudule();
+        setLoad(false);
     }, []);
 
     const noPassDate = (e) => {
         navigate('/TCT', {
             state: {
-                c: 0
+                c: 0,
             }
         })
     }
 
     return (
         <div>
-            {loading ? <Lode /> : null}
+            {loading && <Load />}
             <div className='tct'>
                 <div className='tct-left'>
                     <div>

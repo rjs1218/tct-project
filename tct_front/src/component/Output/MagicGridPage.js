@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import MagicGridEngine from "magic-grid";
 
 function MagicGridPage() {
+    const location = useLocation();
+
     const MagicGrid = ({ children, ...props }) => {
       // useRef를 사용하여 children 을 제어 및 생성
       // 즉, children 에 해당하는 객체를 매직 그리드처럼 제어한다.
@@ -84,11 +86,15 @@ function MagicGridPage() {
               }
           })
       }
-  
+      
+      const keywords = location.state.keywords;
+
       const noPassDate = () => {
           navigate('/TCT', {
               state: {
-                  c: 4
+                  c: 4,
+                  keywords: keywords
+                  
               }
           })
       }

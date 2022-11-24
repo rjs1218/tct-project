@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 
 function OutputPage() {
-    const [end, setEnd] = useState([]);
-    
-    axios
-    .get("API URL")
-    .then((response) => {
-        setEnd([...response.data]);
-        console.log(response.data);
-        })
-    .catch(function (error) {
-        console.log(error)
-    })
-
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const keywords = location.state.keywords;
+
+    const [loading, setLoad] = useState(null);
 
     const onPassDate = () => {
         navigate('/TCT', {
             state: {
-                c: 5
+                c: 5,
+                keywords: keywords,
             }
         })
     }
@@ -33,6 +27,27 @@ function OutputPage() {
         })
     }
 
+    // 데이터 조회 요청
+    const URL = 'http://127.0.0.1:8000/tct/image/get_rgb/'
+
+    const [data, setData] = useState();
+
+    // 비동기적 요청
+    useEffect(() => {
+        axios({
+            method: "get",
+            url: URL,
+            responseType: "json"
+        }).then(function (response) {
+            // response Action
+            setData(response.data)
+            console.log(response.data)
+            setLoad(true)
+        }).catch(function(error) {
+            console.log(error)
+        });
+    }, []);
+    
     return (
         <div>
             <div className='tct'>
@@ -40,21 +55,23 @@ function OutputPage() {
                     <div>
                         <h1>4. TCT</h1>
                         <p>이런 제목과 색상은 어떠세요?</p>
-                    </div> 
+                    </div>
                 </div>
                 <div className='tct-right'>
-                {end.map((e) => (
                         <div>
-                            <h1>{e.cate}분석한 카테고리</h1>
-
-                            <p>추천 색상</p>
-                            <p>{e.color1}{e.color2}{e.color3}</p>
-
-                            <p>{e.keywords}분석한 키워드</p>
-
+                            <h5>추천 색상</h5>
+                            <div id='block'>
+                                {loading && data.map(user => (
+                                    <span style={{backgroundColor: "rgb"+user}}>&nbsp;</span>
+                                ))}
+                            </div>
+                            {keywords.map(user => (
+                                <h1 id='tct-keywords'>{user.keyword}</h1>
+                            ))}
+                            
                             <p>위와 같은 키워드와 관련도가 높아요.</p>
                         </div>
-                    ))}
+
                     <div className="tct-footer">
                         <div className='left'>
                             <button className="footer_button" onClick={noPassDate}>PREV</button>
@@ -69,5 +86,4 @@ function OutputPage() {
         </div>
     );
 }
-
 export default OutputPage;

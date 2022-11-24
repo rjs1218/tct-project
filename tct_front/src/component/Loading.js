@@ -1,13 +1,35 @@
 import React from 'react';
-import Spinner from '../assets/spinner.gif'
 
-// import '../css/Loading.css'
+import '../css/Loading.css'
 
 function Loading() {
     return (
         <div>
-            <p>로딩 중</p>
-             <img src={Spinner} alt="로딩중" width="5%" />
+            <div id='load'>
+                <div class="load">
+                    <p>잠시만 기다려주세요.<br/>불러오는 중입니다.</p>
+                    <div class="sinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

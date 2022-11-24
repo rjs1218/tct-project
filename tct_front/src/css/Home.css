@@ -86,3 +86,13 @@ h4 {
 h5 {
     font-size: 1.2vw;
 }
+
+.home_container span {
+    display: unset;
+    align-items: unset;
+    justify-content: unset;
+    padding: unset;
+    margin: unset;
+    border-radius: unset;
+    box-shadow: unset;
+}

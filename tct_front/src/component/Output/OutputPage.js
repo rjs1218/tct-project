@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 
 function OutputPage() {
+    const [loading, setLoad] = useState(null);
+
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const cate = location.state.cates;
 
     const onPassDate = () => {
         navigate('/TCT', {
             state: {
-                c: 4
+                c: 4,
+                keywords: data2
             }
         })
     }
@@ -21,33 +27,13 @@ function OutputPage() {
         })
     }
 
-    const keywordtest = [
-        {
-            "id": 138,
-            "keyword": "고급 주방",
-            "file_id": 41
-        },
-        {
-            "id": 139,
-            "keyword": "건강식 서양식",
-            "file_id": 41
-        },
-        {
-            "id": 140,
-            "keyword": "냉장고 재료",
-            "file_id": 41
-        }
-    ]
-    
     // 데이터 조회 요청
-    const URL = 'http://127.0.0.1:8000/tct/keyword/get-keyword/'
+    const URL = 'http://127.0.0.1:8000/tct/keyword/get_keyword/'
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useState();
 
-    //@@@@@@두번째
-    //responseType : 서버가 응답해주는 데이터의 타입 지정 
-    //(arraybuffer, documetn, json, text, stream, blob)
-    const onget = async () => {
+    // 비동기적 요청
+    useEffect(() => {
         axios({
             method: "get",
             url: URL,
@@ -56,10 +42,11 @@ function OutputPage() {
             // response Action
             setData(response.data)
             console.log(response.data)
+            setLoad(true)
         }).catch(function(error) {
             console.log(error)
         });
-    }
+    }, []);
 
     return (
         <div>
@@ -72,16 +59,12 @@ function OutputPage() {
                 </div>
 
                 <div className='tct-right'> 
-                    <button onClick={onget}>불러오기</button>
-                    {/* 1 */}
-                    {keywordtest.map(user => (
-                        <li >
+                    <h5>{cate}</h5>
+                    {loading && data.map(user => (
+                        <li className='tct-keyword'>
                             {user.keyword}
                         </li>
                     ))}
-                    {/* 2 */}
-                    <li>{JSON.stringify(keywordtest.keyword)}</li>
-
                     <div className="tct-footer">
                         <div className='left'>
                             <button className="footer_button" onClick={noPassDate}>HOME</button>
