@@ -12,7 +12,7 @@ export function Input_File() {
     const onPassDate = () => {
         navigate('/TCT', {
             state: {
-                file: files[0],
+                files: files[0],
                 c: 1
             }
         })
@@ -43,7 +43,7 @@ export function Input_File() {
             <p className='t'>▼</p><br/>
             <label htmlFor="input-file" >{label}</label>
             <input type="file" id="input-file" accept='.txt' onChange={onFileChange} data-target={files} />
-
+            <pre>  </pre>
             <div className="tct-footer">
                 <div className='left'>
                     <Link to='/'><button className="footer_button">HOME</button></Link>

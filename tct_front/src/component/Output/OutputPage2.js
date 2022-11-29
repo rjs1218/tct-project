@@ -3,18 +3,50 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 
 function OutputPage() {
+    const [loading, setLoad] = useState(null);
+
     const navigate = useNavigate();
     const location = useLocation();
 
+    const cate = location.state.cates;
     const keywords = location.state.keywords;
+    const file = location.state.files;
 
-    const [loading, setLoad] = useState(null);
+    const URL = 'http://127.0.0.1:8000/tct/image/get_rgb/'
 
-    const onPassDate = () => {
+    const [data, setData] = useState();
+
+    // const colors = [{code: "(255, 255, 240)"}, {code: "(255, 123, 10)"}, {code: "(10, 124, 22)"}]
+
+    // const many_codes = [
+        // { many_code: [(217, 227, 226), (37, 35, 46), (44, 120, 208)]}//, //[226, 46, 208]
+        // { many_code: ["(31, 31, 31)","(32, 32, 32)","(33, 33, 33)"]},
+        // { many_code: "[(612, 612, 612),(62, 62, 62),(63, 63, 63)]"}
+    // ]
+    // console.log(many_codes)
+    // console.log(typeof JSON.stringify(many_codes))
+
+    useEffect(() => {
+        axios({
+            method: "get",
+            url: URL,
+            responseType: "json"
+        }).then(function (response) {
+            setData(response.data)
+            setLoad(true)
+        }).catch(function(error) {
+            console.log(error)
+        });
+    }, []);
+
+    const onPassDate = () => {loading &&
         navigate('/TCT', {
             state: {
                 c: 5,
                 keywords: keywords,
+                files: file,
+                cates: cate,
+                codes: data
             }
         })
     }
@@ -22,31 +54,13 @@ function OutputPage() {
     const noPassDate = () => {
         navigate('/TCT', {
             state: {
-                c: 3
+                c: 3,
+                keywords: keywords,
+                files: file,
+                cates: cate,
             }
         })
     }
-
-    // 데이터 조회 요청
-    const URL = 'http://127.0.0.1:8000/tct/image/get_rgb/'
-
-    const [data, setData] = useState();
-
-    // 비동기적 요청
-    useEffect(() => {
-        axios({
-            method: "get",
-            url: URL,
-            responseType: "json"
-        }).then(function (response) {
-            // response Action
-            setData(response.data)
-            console.log(response.data)
-            setLoad(true)
-        }).catch(function(error) {
-            console.log(error)
-        });
-    }, []);
     
     return (
         <div>
@@ -62,14 +76,15 @@ function OutputPage() {
                             <h5>추천 색상</h5>
                             <div id='block'>
                                 {loading && data.map(user => (
-                                    <span style={{backgroundColor: "rgb"+user}}>&nbsp;</span>
+                                    <span style={{backgroundColor: "rgb"+user.code}}>&nbsp;</span>
                                 ))}
                             </div>
-                            {keywords.map(user => (
-                                <h1 id='tct-keywords'>{user.keyword}</h1>
-                            ))}
-                            
-                            <p>위와 같은 키워드와 관련도가 높아요.</p>
+                            <div id='block'>
+                                {loading && keywords.map(user => (
+                                    <h1 id='tct-keywords'>{user.keyword}</h1>
+                                ))}
+                                <p>위와 같은 키워드와 관련도가 높은 색상이에요.</p>
+                            </div>
                         </div>
 
                     <div className="tct-footer">

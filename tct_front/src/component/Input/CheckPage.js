@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import Load from '../Loading'
@@ -8,54 +8,46 @@ function CheckPage() {
     
     const location = useLocation();
 
-    const files = location.state.file; //e.target[0].files[0];
+    const file = location.state.files;
     const cate = location.state.cates;
-    console.log(files)
-    console.log(cate)
 
     const navigate = useNavigate();
 
     const uploadMoudule = async () => {
-        // setLoad(true)
-        setLoad(false);
+        setLoad(true)
         
         const formData = new FormData();
 
-        formData.append("file", files)
+        formData.append("file", file)
         // formData.append("category", cate)
 
-        // 전송 요청
         const URL = "http://127.0.0.1:8000/tct/file-upload/"
 
         axios({
-            method: "post", // 전송 요청
+            method: "post",
             url: URL,
             headers: {
                 "Content-Type": "multipart/form-data",
             },
-            data: formData, // 꼭 생성되어있는 formData 객체만 전송가능
+            data: formData,
 
         }).then(function (response) {
-            console.log(response) //성공시 출력되는 로그
+            console.log(response)
             setLoad(false);
-            
+
+            navigate('/TCT', {
+                state: {
+                    c: 3,
+                    files: file,
+                    cates: cate
+                }
+            })
         }).catch(function(error) {
             console.log(error)
         })
-        navigate('/TCT', {
-            state: {
-                c: 3,
-                cates: cate
-            }
-        })
- 
     }
 
-    useEffect(() => {
-        setLoad(false);
-    }, []);
-
-    const noPassDate = (e) => {
+    const noPassDate = () => {
         navigate('/TCT', {
             state: {
                 c: 0,
@@ -75,13 +67,13 @@ function CheckPage() {
                 </div>
                 <div className='tct-right'>
                     <div>
-                        <h6>{files.name}</h6>
+                        <h6>{file.name}</h6>
                         <h6>{cate}</h6>
                     </div>
 
                     <div className="tct-footer">
                         <div className='left'>
-                            <button className="footer_button" onClick={noPassDate}>PREV</button>
+                            <button className="footer_button" onClick={noPassDate}>AGAIN</button>
                         </div>
                         <div className='center'>   </div>
                         <div className='right'>

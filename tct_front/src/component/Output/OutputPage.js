@@ -9,12 +9,34 @@ function OutputPage() {
     const location = useLocation();
 
     const cate = location.state.cates;
+    const file = location.state.files;
+    // const data2 = [{keyword:'test'}, {keyword: 'test'}, {keyword: 'test'}]
+    // const cosins = {percent:"90%"}
+    
+    const URL = 'http://127.0.0.1:8000/tct/keyword/get_keyword/'
+
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        axios({
+            method: "get",
+            url: URL,
+            responseType: "json"
+        }).then(function (response) {
+            setData(response.data)
+            setLoad(true)
+        }).catch(function(error) {
+            console.log(error)
+        });
+    }, []);
 
     const onPassDate = () => {
         navigate('/TCT', {
             state: {
                 c: 4,
-                keywords: data2
+                keywords: data,
+                files: file,
+                cates: cate
             }
         })
     }
@@ -22,31 +44,12 @@ function OutputPage() {
     const noPassDate = () => {
         navigate('/TCT', {
             state: {
-                c: 0
+                c: 2,
+                files: file,
+                cates: cate
             }
         })
     }
-
-    // 데이터 조회 요청
-    const URL = 'http://127.0.0.1:8000/tct/keyword/get_keyword/'
-
-    const [data, setData] = useState();
-
-    // 비동기적 요청
-    useEffect(() => {
-        axios({
-            method: "get",
-            url: URL,
-            responseType: "json"
-        }).then(function (response) {
-            // response Action
-            setData(response.data)
-            console.log(response.data)
-            setLoad(true)
-        }).catch(function(error) {
-            console.log(error)
-        });
-    }, []);
 
     return (
         <div>
@@ -60,6 +63,7 @@ function OutputPage() {
 
                 <div className='tct-right'> 
                     <h5>{cate}</h5>
+                    <h5 className='percent'>{loading && data.percent}</h5>
                     {loading && data.map(user => (
                         <li className='tct-keyword'>
                             {user.keyword}
@@ -67,7 +71,7 @@ function OutputPage() {
                     ))}
                     <div className="tct-footer">
                         <div className='left'>
-                            <button className="footer_button" onClick={noPassDate}>HOME</button>
+                            <button className="footer_button" onClick={noPassDate}>PREV</button>
                         </div>
                         <div className='center'>3/5</div>
                         <div className='right'>

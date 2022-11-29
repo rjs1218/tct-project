@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 
 export function Input_Cate() {
-    const [cates, setCate] = useState(null);
+    const [cate, setCate] = useState(null);
 
     const categorys = [
         { mains: "총류", 
@@ -58,15 +58,14 @@ export function Input_Cate() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const files = location.state.file;
-    // console.log(files)
+    const file = location.state.files;
 
     const onPassDate = () => {
-        if (cates !== null) {
+        if (cate !== null) {
             navigate('/TCT', {
                 state: {
-                    file: files,
-                    cates: cates,
+                    files: file,
+                    cates: cate,
                     c: 2
                 }
             })
@@ -76,8 +75,8 @@ export function Input_Cate() {
     const noPassDate = () => {
         navigate('/TCT', {
             state: {
-                file: files,
-                cates: cates,
+                files: file,
+                cates: cate,
                 c: 0
             }
         })
