@@ -670,7 +670,7 @@ def pre_doc(doc):
 
     m_pre_nouns = " ".join([word for word in m_pre_doc])
 
-    n_gram_range = (2, 2)
+    n_gram_range = (1, 1)
 
     count = CountVectorizer(ngram_range=n_gram_range).fit([m_pre_nouns])
     candidates = count.get_feature_names()
