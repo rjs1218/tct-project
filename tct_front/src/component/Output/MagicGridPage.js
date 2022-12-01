@@ -11,15 +11,6 @@ function MagicGridPage() {
     const keywords = location.state.keywords;
     const files = location.state.file;
     const many_codes = location.state.codes;
-    
-    // console.log("test", many_codes[0])
-    // console.log("key", many_codes[0].many_code)
-    // console.log("type", typeof many_codes[0].many_code)
-    // const lsit = many_codes.map((code) => {
-    //     return code
-    // })
-    // console.log(lsit)
-    // console.log("끝")
 
     const MagicGrid = ({ children, ...props }) => {
         // useRef를 사용하여 children 을 제어 및 생성
@@ -79,13 +70,22 @@ function MagicGridPage() {
     // 선언한 card 엘리먼트 전부 태그 값으로 출력하는 곳
     const Card = () => {
         const result = []
-        for (const colors of many_codes) {
-          for (const color of colors.many_code) {
-              // (max - min) + min
-              let ranH = Math.floor(Math.random() * (120 - 70) + 70)
 
-              result.push(<div id="Card" style={{backgroundColor:"rgb"+color, height: ranH}}></div>);
-          }
+        for (const colors of many_codes) {
+            //"['(111, 612, 612)',.'(62, 62, 62)',.'(63, 63, 63)']"
+            let stringtest = ""
+            stringtest = colors.many_code;
+            // stringtest.replace(/\)\',/gi, ")',.").replace(/'/gi, "").split(",.")
+            stringtest = stringtest.slice(1, stringtest.length-1).replace(/\)\',/gi, ")',.").replace(/'/gi, "").split(",.")
+            console.log(stringtest)
+            console.log(typeof stringtest)
+            
+            for (const color of stringtest) {
+                // (max - min) + min
+                let ranH = Math.floor(Math.random() * (120 - 70) + 70)
+
+                result.push(<div id="Card" style={{backgroundColor:"rgb"+color, height: ranH}}></div>);
+            }
         }
         return result
     };
