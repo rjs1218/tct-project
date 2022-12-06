@@ -19,7 +19,7 @@ function CheckPage() {
         const formData = new FormData();
 
         formData.append("file", file)
-        // formData.append("category", cate)
+        formData.append("user_category", cate)
 
         const URL = "http://127.0.0.1:8000/tct/file-upload/"
 
@@ -42,9 +42,12 @@ function CheckPage() {
                     cates: cate
                 }
             })
+            
         }).catch(function(error) {
             console.log(error)
         })
+
+
     }
 
     const noPassDate = () => {

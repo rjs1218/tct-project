@@ -9,7 +9,7 @@ function MagicGridPage() {
 
     const cate = location.state.cates;
     const keywords = location.state.keywords;
-    const files = location.state.file;
+    const file = location.state.files;
     const many_codes = location.state.codes;
 
     const MagicGrid = ({ children, ...props }) => {
@@ -72,15 +72,13 @@ function MagicGridPage() {
         const result = []
 
         for (const colors of many_codes) {
-            //"['(111, 612, 612)',.'(62, 62, 62)',.'(63, 63, 63)']"
             let stringtest = ""
             stringtest = colors.many_code;
-            // stringtest.replace(/\)\',/gi, ")',.").replace(/'/gi, "").split(",.")
             stringtest = stringtest.slice(1, stringtest.length-1).replace(/\)\',/gi, ")',.").replace(/'/gi, "").split(",.")
-            console.log(stringtest)
-            console.log(typeof stringtest)
             
-            for (const color of stringtest) {
+            for (let color of stringtest) {
+                color = color.replace(" ", "")
+
                 // (max - min) + min
                 let ranH = Math.floor(Math.random() * (120 - 70) + 70)
 
@@ -103,7 +101,7 @@ function MagicGridPage() {
             state: {
                 c: 4,
                 keywords: keywords,
-                file: files,
+                files: file,
                 cates: cate
             }
         })

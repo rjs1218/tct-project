@@ -16,16 +16,6 @@ function OutputPage() {
 
     const [data, setData] = useState();
 
-    // const colors = [{code: "(255, 255, 240)"}, {code: "(255, 123, 10)"}, {code: "(10, 124, 22)"}]
-
-    // const many_codes = [
-        // { many_code: [(217, 227, 226), (37, 35, 46), (44, 120, 208)]}//, //[226, 46, 208]
-        // { many_code: ["(31, 31, 31)","(32, 32, 32)","(33, 33, 33)"]},
-        // { many_code: "[(612, 612, 612),(62, 62, 62),(63, 63, 63)]"}
-    // ]
-    // console.log(many_codes)
-    // console.log(typeof JSON.stringify(many_codes))
-
     useEffect(() => {
         axios({
             method: "get",

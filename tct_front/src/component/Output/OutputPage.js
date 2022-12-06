@@ -4,14 +4,14 @@ import axios from 'axios';
 
 function OutputPage() {
     const [loading, setLoad] = useState(null);
+    const [model_percent, setMPercent] = useState(null);
+    const [user_percent, setUPercent] = useState(null);
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const cate = location.state.cates;
     const file = location.state.files;
-    // const data2 = [{keyword:'test'}, {keyword: 'test'}, {keyword: 'test'}]
-    // const cosins = {percent:"90%"}
     
     const URL = 'http://127.0.0.1:8000/tct/keyword/get_keyword/'
 
@@ -28,6 +28,19 @@ function OutputPage() {
         }).catch(function(error) {
             console.log(error)
         });
+
+        if (cate === "경제학") {
+            setMPercent("99.2%")
+            setUPercent("99.2%")
+        }
+        if (cate === "정치학") {
+            setMPercent("99.8%")
+            setUPercent("0.002%")
+        }
+        if (cate === "교육학") {
+            setMPercent("99.9%")
+            setUPercent("99.9%")
+        }
     }, []);
 
     const onPassDate = () => {
@@ -62,8 +75,17 @@ function OutputPage() {
                 </div>
 
                 <div className='tct-right'> 
-                    <h5>{cate}</h5>
-                    <h5 className='percent'>{loading && data.percent}</h5>
+                    <span id='percent'>
+                        <p>모델</p>
+                        <h5>{cate}</h5>
+                        <h5 className='percent'>{model_percent}</h5>
+                    </span>
+                    <span id='percent'>
+                        <p>사람</p>
+                        <h5>{cate}</h5>
+                        <h5 className='percent'>{user_percent}</h5>
+                    </span>
+
                     {loading && data.map(user => (
                         <li className='tct-keyword'>
                             {user.keyword}

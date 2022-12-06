@@ -11,7 +11,7 @@
     }
 
     .tct-right {
-        margin: 0% 8%;
+        margin: 0% 8% 20% 8%;
         border-top : thick solid #a9a9a9;
     }
 
@@ -37,11 +37,28 @@
         margin: 10% 10%;
         width: 70%;
         font-size: 20px;
-        border-bottom: 3px solid #d9d9d9;
+        border-bottom: 2px solid #a2a2a2;
+    }
+
+    .percent {
+        border-bottom: 2px solid #d9d9d9 !important;
     }
 
     .tct-right h5:hover {
         background-color: rgba(224, 224, 224, 0.758);
+    }
+
+    .tct-keyword {
+        list-style-type: none !important;
+        border-radius: unset !important;
+        padding: 5% 10% !important;
+        margin: 0% 10% !important;
+        text-align: center !important;
+        font-size: 3vw !important;
+    }
+
+    .tct-keyword:hover {
+        background-color: rgba(224, 224, 224, 0.758) !important;
     }
 
     .tct-right li {
@@ -50,7 +67,7 @@
         padding: 5% 10%;
         margin: 0% 10%;
         text-align: center;
-        font-size: 4.5vw;
+        font-size: 3vw;
     }
 
     .tct-right li:hover {
@@ -58,8 +75,8 @@
     }
 
     #block {
-        padding: 5%;
-        margin: 0% 10%;
+        padding: 5% 5% 3% 5%;
+        margin: 0% 10% 0 10%;
     }
 
     span {
@@ -70,6 +87,15 @@
         margin: 0% 5%;
         border-radius: 1Vw;
         box-shadow: 3px 3px 5px rgba(182, 182, 182, 0.483);
+    }
+
+    #percent {
+        width: 50%;
+        padding: unset;
+        margin: unset;
+        border-radius: unset;
+        box-shadow: unset;
+        text-align: center;
     }
 
     #tct-keywords {
@@ -97,6 +123,10 @@
         padding: 10% 10%;
         vertical-align: middle;
         cursor: pointer;
+    }
+
+    pre {
+        padding: 0 0 100% 0;
     }
     
     label:hover {
@@ -139,15 +169,15 @@
     }
 
     li {
-        background-color: #FFF;
-        border-radius: 2vw;
-        padding: 5% 5%;
-        margin: 5% 0%;
-        text-align: center;
+        background-color: #FFF !important;
+        border-radius: 2vw !important;
+        padding: 5% 5% !important;
+        margin: 5% 0% !important;
+        text-align: center !important;
     }
 
     li:hover {
-        background-color: rgb(210, 231, 250);
+        background-color: rgb(210, 231, 250) !important;
     }
 
     .tct-footer {
@@ -208,7 +238,11 @@
         margin: 10% 10%;
         width: 70%;
         font-size: 30px;
-        border-bottom: 3px solid #d9d9d9;
+        border-bottom: 2px solid #a2a2a2;
+    }
+
+    .percent {
+        border-bottom: 2px solid #d9d9d9 !important;
     }
 
     .tct-right h5:hover {
@@ -229,8 +263,8 @@
     }
 
     #block {
-        padding: 5%;
-        margin: 0% 10%;
+        padding: 5% 5% 3% 5%;
+        margin: 0% 10% 0 10%;
     }
 
     span {
@@ -241,6 +275,15 @@
         margin: 0% 5%;
         border-radius: 1Vw;
         box-shadow: 3px 3px 5px rgba(182, 182, 182, 0.483);
+    }
+
+    #percent {
+        width: 50%;
+        padding: unset;
+        margin: 10% 0 0 0;
+        border-radius: unset;
+        box-shadow: unset;
+        text-align: center;
     }
 
     #tct-keywords {
@@ -256,6 +299,12 @@
         margin: 0 0 0 8%;
         font-size: 18.4px;
     }
+
+    #block p {
+        font-size: 1vw;
+        width: 110%;
+        margin-left: -6%;
+    }
     
     .t {
         margin: 0 0 10% 37%;
@@ -270,6 +319,10 @@
         padding: 10% 10%;
         vertical-align: middle;
         cursor: pointer;
+    }
+
+    pre {
+        padding: 0 0 0 0;
     }
     
     label:hover {
